@@ -155,7 +155,7 @@ c.height = dimension[1];
 		if (demoMuted === false) {
 			player.setVolume(0.0)
 			demoMuted = true
-			setStatus("O")
+			setStatus("X")
 		}
 	}
 
@@ -164,7 +164,7 @@ c.height = dimension[1];
 		if (demoMuted === true) {
 			player.setVolume(1.0, 0.5) // 0.5 second fade-in
 			demoMuted = false
-			setStatus("X")
+			setStatus("O")
 		}
 	}
 
