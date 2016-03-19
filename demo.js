@@ -2,6 +2,11 @@
 // Web Audio and 3D Soundscapes: Implementation
 // http://gamedev.tutsplus.com/tutorials/web-audio-and-3d-soundscapes-implementation--cms-22651
 //
+var dimension = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+var c = document.getElementById("canvas");
+c.width = dimension[0];
+c.height = dimension[1];
+
 (function(){
 	var canvas = document.querySelector("#canvas")
 	var status = document.querySelector("#status")
@@ -56,11 +61,11 @@
 	// Called when the audio player has loaded a queue of sounds.
 	player.onloadcomplete = function() {
 		window.console.debug("Loaded.")
-		
+
 		player.onloadstart = null
 		player.onloaderror = null
 		player.onloadcomplete = null
-		
+
 		start()
 	}
 
@@ -140,7 +145,7 @@
 
 			i++
 		}
-		
+
 		canvas.context.fill()
 		canvas.context.closePath()
 	}
@@ -150,7 +155,7 @@
 		if (demoMuted === false) {
 			player.setVolume(0.0)
 			demoMuted = true
-			setStatus("Click to unmute the demo.")
+			setStatus("O")
 		}
 	}
 
@@ -159,7 +164,7 @@
 		if (demoMuted === true) {
 			player.setVolume(1.0, 0.5) // 0.5 second fade-in
 			demoMuted = false
-			setStatus("Click to mute the demo.")
+			setStatus("X")
 		}
 	}
 
